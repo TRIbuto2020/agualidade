@@ -10,7 +10,7 @@
 <section id="menu" class="menu">
     <div class="menu__items">
         <a href="#sobre" class="menu__items__item">Sobre</a>
-        <a href="#portfolio" class="menu__items__item">Portifólio</a>
+        <a href="{% url 'portfolio' %}" class="menu__items__item">Portifólio</a>
         <a href="#contato" class="menu__items__item">Contato</a>
     </div>
     <div class="menu__background__pattern"></div>
@@ -18,8 +18,8 @@
 </section>
 <section id="sobre">
     <div class="centro">
-        <h1 class="section__title" data-aos="zoom-in-down" data-aos-duration="3000">Sobre</h1>
-        <p class="desc" data-aos="zoom-in-up" data-aos-duration="3000">
+        <h1 class="title" data-aos="zoom-in-down" data-aos-duration="3000">Sobre</h1>
+        <p class="text" data-aos="zoom-in-up" data-aos-duration="3000">
             <span class="magic">Vitor Rodrigues da Silva</span>
             é formado em Ciências Biológicas pela USP, aficcionado por esportes e web design.<br>
             <br>
@@ -30,38 +30,14 @@
 </section>
 <section id="portfolio">
     <div class="centro">
-        <h1 class="section__title" data-aos="zoom-in-down" data-aos-duration="3000">Portfólio</h1>
-        <div class="grid" data-aos="zoom-out" data-aos-duration="3000">
-            <div class="grid__blob grid__blob--yourname">
-                <h3 class="grid__blob__title">Your Name</h3>
-                <a href="https://yourname.vercel.app/" class="grid__blob__button" target="_blank">Visite o site!</a>
-            </div>
-            <div class="grid__blob grid__blob--porto">
-                <h3 class="grid__blob__title">Porto Aventura</h3>
-                <a href="https://portoaventura.vercel.app/" class="grid__blob__button" target="_blank">Visite o site!</a>
-            </div>
-            <div class="grid__blob grid__blob--niver">
-                <h3 class="grid__blob__title">Aniversário</h3>
-                <a href="https://aniversario-vitinho-2023.vercel.app" class="grid__blob__button" target="_blank">Visite o site!</a>
-            </div>
-            <div class="grid__blob grid__blob--patchoca">
-                <h3 class="grid__blob__title">Patchoca S.C.</h3>
-                <p>Criação da identidade visual, logo e camisetas!</p>
-            </div>
-            <div class="grid__blob grid__blob--refruta">
-                <h3 class="grid__blob__title">RêFruta</h3>
-                <a href="https://refruta.eco.br" class="grid__blob__button" target="_blank">Visite o site!</a>
-            </div>
-            <div class="grid__blob">6</div>
-            <div class="grid__blob">7</div>
-            <div class="grid__blob">8</div>
-            <div class="grid__blob">9</div>
-        </div>
+        <h1 class="title" data-aos="zoom-in-down" data-aos-duration="3000">Portfólio</h1>
+        <p class="text" data-aos="zoom-in-up" data-aos-duration="3000">Apresentando {{num_projects}} projetos incríveis que representam meu compromisso e paixão pelo que faço.
+        <a class="magic" href="{% url 'portfolio' %}">Veja em detalhes!</a></p>
     </div>
 </section>
 <section id="contato">
     <div class="centro">
-        <h1 class="section__title" data-aos="zoom-in-down" data-aos-duration="3000">Contato</h1>
+        <h1 class="title" data-aos="zoom-in-down" data-aos-duration="3000">Contato</h1>
         <a class="metodo" href="mailto:vitor2000rs@gmail.com" data-aos="fade-down" data-aos-duration="2000">
             E-mail: vitor2000rs<span>@gmail.com</span>
         </a>

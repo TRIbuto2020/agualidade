@@ -1,16 +1,28 @@
 {% extends "base_generic.html" %}
 
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/portfolio.css' %}" />
+{% endblock %}
+
 {% block content %}
-    <h1>Project List</h1>
-    {% if project_list %}
-        <ul>
-        {% for project in project_list %}
-        <li>
-            <a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
-        </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>There are no projects in the library.</p>
-    {% endif %}
+    
+    <section>
+        <div class="centro">
+            <h1 class="title magic" data-aos="zoom-in-down" data-aos-duration="3000">Portfólio</h1>
+            {% if project_list %}
+            <ul class="projects" data-aos="zoom-in-up" data-aos-duration="3000">
+            {% for project in project_list %}
+                <li>
+                    <a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
+                    <p>{{ project.summary }}{{project.thumb}}</p>
+                    <img src="static/img/uploads/{{project.thumb}}" alt="My image">
+                </li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>There are no projects in the library.</p>
+            {% endif %}
+        </div>
+    </section>
 {% endblock %}
