@@ -1,0 +1,29 @@
+@keyframes background-pan {
+    0% {
+        background-position: 0%
+    }
+
+    to {
+        background-position: -200%
+    }
+}
+
+@keyframes background-rise {
+    0% {
+        background-position: 0 0
+    }
+
+    to {
+        background-position: 0 -330vh
+    }
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate(-90px)
+    }
+
+    to {
+        transform: translate(85px)
+    }
+}

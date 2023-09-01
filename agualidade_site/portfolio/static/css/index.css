@@ -1,0 +1,385 @@
+/* Index */
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    width: 100vw
+}
+
+/* Menu */
+.menu__items {
+    z-index: 2;
+    margin-left: clamp(4rem, 20vw, 48rem);
+    position: relative
+}
+
+.menu__items:hover>.menu__items__item {
+    opacity: .3
+}
+
+.menu__items:hover~.menu__background__pattern {
+    opacity: .55;
+    background-size: 90vmin
+}
+
+.menu__items:hover~.menu__background__image {
+    background-size: 150vmax
+}
+
+.menu__items:hover>.menu__items__item:hover {
+    background: linear-gradient(90deg, #21b0c9, #2022af, #27f8e7, #21b0c9) 0 0/200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    opacity: 1;
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: 5s linear infinite background-pan
+}
+
+.menu__items__item {
+    cursor: pointer;
+    padding: clamp(.25rem, .5vw, 1rem) 0;
+    font-size: clamp(2rem, 8vw, 8rem);
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity .4s;
+    display: block
+}
+
+.menu__background__pattern {
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    opacity: .9;
+    -webkit-backdrop-filter: blur(5px)saturate(150%)brightness(50%);
+    -webkit-backdrop-filter: blur(5px)saturate(150%)brightness(50%);
+    backdrop-filter: blur(5px)saturate(150%)brightness(50%);
+    filter: brightness(150%);
+    background: url("/static/img/bgmenu.png") 0 0/110vmin repeat-y;
+    transition: opacity .8s, background-size .8s, background-position .8s;
+    animation: 70s linear infinite background-rise;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.menu__background__image {
+    height: 100vh;
+    opacity: 1;
+    width: 100%;
+    z-index: 0;
+    background-image: url(https://cepe.usp.br/wp-content/uploads/piscina-cepeusp-reabertura-2-sem-2017.jpg);
+    background-position: 50% 40%;
+    background-size: 180vmax;
+    transition: opacity .8s, background-size .8s, background-position .8s;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.menu[data-active-index="0"]>.menu__background__image {
+    background-position: 50% 45%
+}
+
+.menu[data-active-index="1"]>.menu__background__image {
+    background-position: 50%
+}
+
+.menu[data-active-index="2"]>.menu__background__image {
+    background-position: 50% 55%
+}
+
+.menu[data-active-index="3"]>.menu__background__image {
+    background-position: 50% 60%
+}
+
+#sobre .desc {
+    font-size: 2rem
+}
+
+/* Grid */
+.grid {
+    height: 50vh;
+    width: 50vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    display: grid;
+    position: relative
+}
+
+@media (max-width: 1080px) {
+    .grid {
+        width: 75vw
+    }
+}
+
+.grid:hover>.grid__blob:not(:hover) {
+    opacity: 0;
+    transition: all .5s .5s
+}
+
+.grid__blob {
+    height: 30%;
+    width: 30%;
+    background-color: #21b0c9;
+    border: 4px solid #21b0c9;
+    border-radius: 30px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 4px auto;
+    transition: all .5s;
+    display: flex;
+    position: absolute
+}
+
+.grid__blob__title {
+    z-index: 2;
+    text-align: center;
+    margin: auto
+}
+
+@media (max-width: 640px) {
+    .grid__blob__title {
+        font-size: 12px
+    }
+}
+
+.grid__blob__button {
+    visibility: hidden;
+    text-align: center;
+    z-index: 2;
+    font-size: 0
+}
+
+.grid__blob:before {
+    width: 100%;
+    height: 100%;
+    content: "";
+    -webkit-backdrop-filter: blur(2px)brightness(40%);
+    -webkit-backdrop-filter: blur(2px)brightness(40%);
+    backdrop-filter: blur(2px)brightness(40%);
+    background-color: #21b0c9;
+    border-radius: 16px;
+    transition: background-color .2s linear;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.grid__blob:nth-child(-n+3) {
+    top: 0
+}
+
+.grid__blob:nth-child(3n+3) {
+    left: 70%
+}
+
+.grid__blob:nth-child(3n+2) {
+    left: 35%
+}
+
+.grid__blob:nth-child(n+4):nth-child(-n+6) {
+    top: 35%
+}
+
+.grid__blob:nth-child(n+7):nth-child(-n+9) {
+    top: 70%
+}
+
+.grid__blob:hover {
+    height: 50vh;
+    width: 50vw;
+    opacity: 1;
+    z-index: 2;
+    background-color: #030918;
+    margin: 0 auto;
+    transition: all 1s .2s;
+    top: 0;
+    left: 0
+}
+
+@media (max-width: 1080px) {
+    .grid__blob:hover {
+        width: 75vw
+    }
+}
+
+.grid__blob:hover .grid__blob__title {
+    display: none
+}
+
+.grid__blob:hover .grid__blob__button {
+    visibility: visible;
+    font-size: 30px;
+    font-weight: 700;
+    transition: all 1s .2s
+}
+
+.grid__blob:hover:before {
+    background-color: #0000;
+    border-radius: 24px;
+    transition: background-color 1s
+}
+
+.grid__blob:hover:nth-child(n+4):nth-child(-n+9) {
+    top: 0
+}
+
+.grid__blob--yourname {
+    background-image: url(yourname.be4767e8.png)
+}
+
+.grid__blob--yourname .grid__blob__button:hover {
+    background: linear-gradient(90deg, #14bcf0, #b90079, #14bcf0) 0 0/200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: 5s linear infinite background-pan
+}
+
+.grid__blob--yourname:hover {
+    background-size: cover;
+    border-color: #550037
+}
+
+.grid__blob--porto {
+    background-image: url(porto.b059e860.png)
+}
+
+.grid__blob--porto .grid__blob__button:hover {
+    background: linear-gradient(90deg, #e9da9a, #98edf8, #e9da9a) 0 0/200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: 5s linear infinite background-pan
+}
+
+.grid__blob--porto:hover {
+    background-size: cover;
+    border-color: #554100
+}
+
+.grid__blob--niver {
+    background-image: url(niver.218be469.png)
+}
+
+.grid__blob--niver .grid__blob__button:hover {
+    background: linear-gradient(90deg, #008516, #93a300, #008516) 0 0/200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: 5s linear infinite background-pan
+}
+
+.grid__blob--niver:hover {
+    background-size: cover;
+    border-color: #003a00
+}
+
+.grid__blob--patchoca {
+    background-image: url(patchoca.6ffefab3.png);
+    background-position: 50%
+}
+
+.grid__blob--patchoca:before {
+    -webkit-backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none
+}
+
+.grid__blob--patchoca p {
+    visibility: hidden;
+    text-align: center;
+    font-size: 0;
+    font-weight: 700
+}
+
+.grid__blob--patchoca:hover {
+    background-size: cover;
+    border-bottom-color: #cc00a0;
+    border-right-color: #cc00a0
+}
+
+.grid__blob--patchoca:hover p {
+    visibility: visible;
+    font-size: 24px;
+    transition: all 1s .2s;
+    position: absolute;
+    bottom: 25px
+}
+
+@media (max-width: 640px) {
+    .grid__blob--patchoca:hover p {
+        font-size: 18px
+    }
+}
+
+.grid__blob--refruta {
+    background-image: url(refruta.a872b0a9.png)
+}
+
+.grid__blob--refruta .grid__blob__button:hover {
+    background: linear-gradient(90deg, #dd6e00, #009bb6, #dd6e00) 0 0/200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: 5s linear infinite background-pan
+}
+
+.grid__blob--refruta:hover {
+    background-size: cover;
+    border-color: #e46e00
+}
+
+/* Contact */
+#contato .metodo {
+    text-align: center;
+    width: 80%;
+    border: 3px solid #21b0c9;
+    border-radius: 40px;
+    margin: 64px auto;
+    padding: 8px;
+    font-size: 2.5rem;
+    transition: all 1s;
+    display: block
+}
+
+#contato .metodo span {
+    transition: all 1s
+}
+
+#contato .metodo:hover {
+    color: #030918;
+    background-color: #21b0c9;
+    border-color: #030918;
+    box-shadow: inset 0 -23px 25px #0000002b, inset 0 -36px 30px #00000026, inset 0 -79px 40px #0000001a, 0 2px 1px #0000000f, 0 4px 2px #00000017, 0 8px 4px #00000017, 0 16px 8px #00000017, 0 32px 16px #00000017
+}
+
+#contato .metodo:hover span {
+    color: #030918;
+    transition: all 1s
+}
+
+/* Responsivity */
+@media (max-width: 780px) {
+    #contato .metodo {
+        font-size: 1.5rem
+    }
+
+    #contato .metodo span {
+        display: block
+    }
+
+    #sobre .desc {
+        font-size: 1.3rem
+    }
+}
