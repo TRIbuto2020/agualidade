@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {%block title%}
+        <title>Vitor R.S.</title>
+        {%endblock%}
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+        <!-- Add additional CSS in static file -->
+        {% load static %}
+        <link rel="icon shortcut" href="{% static 'img/icon.png' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/animations.css' %}" />
+        {% block style %}{% endblock %}
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+        <div class="goUp goUp--is-hidden">
+            <a href="#menu">▲</a>
+        </div>
+        <footer>
+            <div>
+                <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48"/>
+                        <use xlink:href="#gentle-wave" x="48" y="3"/>
+                        <use xlink:href="#gentle-wave" x="48" y="5"/>
+                        <use xlink:href="#gentle-wave" x="48" y="7"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="container">Vitor R.S. &copy;- 2022 </div>
+        </footer>
+        {%load static%}
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    </body>
+</html>

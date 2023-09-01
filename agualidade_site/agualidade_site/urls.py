@@ -21,7 +21,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('portfolio/', include('portfolio.urls')),
-    path('', RedirectView.as_view(url='portfolio/')),
+    path("admin/", admin.site.urls, name=""),
+    path("", include("portfolio.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
