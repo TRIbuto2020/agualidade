@@ -13,10 +13,16 @@
             {% if project_list %}
             <ul class="projects" data-aos="zoom-in-up" data-aos-duration="3000">
             {% for project in project_list %}
-                <li>
-                    <a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
-                    <p>{{ project.summary }}{{project.thumb}}</p>
-                    <img src="static/img/uploads/{{project.thumb}}" alt="My image">
+                <li style="border-color: {{project.color}}; background-image: url('static/img/uploads/{{project.thumb}}');" class="project">
+                    <div class="left">
+                        <p class="project__title">
+                            <a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
+                        </p>
+                        <p>{{ project.tech }}</p>
+                    </div>
+                    <div class="left">
+                        <p>{{project.summary}}</p>
+                    </div>
                 </li>
             {% endfor %}
             </ul>
