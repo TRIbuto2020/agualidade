@@ -28,12 +28,12 @@ body {
 }
 
 @media (max-width: 780px) {
-    section .section__title {
-        font-size: 3rem
-    }
-
     .text {
         font-size: 1.3rem
+    }
+
+    .title {
+        font-size: 3rem;
     }
 }
 

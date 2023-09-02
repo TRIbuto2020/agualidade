@@ -59,7 +59,6 @@ cover/
 *.log
 local_settings.py
 migrations/
-uploads/
 db.sqlite3
 db.sqlite3-journal
 

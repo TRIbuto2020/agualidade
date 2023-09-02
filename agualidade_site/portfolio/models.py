@@ -9,9 +9,11 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
 
     tech = models.CharField(
-        max_length=100,
+        max_length=30,
         help_text="Enter a summary of the technologies used in the project",
     )
+
+    smdesc = models.CharField(max_length=100, default="Um site feito por mim...")
 
     summary = models.TextField(
         max_length=1000, help_text="Enter a brief description of the project"

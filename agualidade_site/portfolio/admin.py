@@ -7,4 +7,11 @@ from .models import Project
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ("title", "type")
     list_filter = ("title", "type", "tech")
-    fields = ["title", "summary", ("type", "tech"), "link", ("thumb", "color")]
+    fields = [
+        "title",
+        "smdesc",
+        "summary",
+        ("type", "tech"),
+        "link",
+        ("thumb", "color"),
+    ]
