@@ -24,7 +24,8 @@ class Project(models.Model):
         unique=True,
         null=True,
         blank=True,
-        help_text="Link to project",
+        help_text="Link to project (with https://)",
+        validators=[RegexValidator("^https://")],
     )
 
     TYPE_OF_PROJECT = [
