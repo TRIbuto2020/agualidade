@@ -5,6 +5,15 @@ html {
     width: 100vw
 }
 
+section {
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: center;
+    align-items: center;
+    display: flex
+}
+
+
 /* Menu */
 .menu__items {
     z-index: 2;
@@ -94,251 +103,7 @@ html {
     background-position: 50% 60%
 }
 
-#sobre .desc {
-    font-size: 2rem
-}
 
-/* Grid */
-.grid {
-    height: 50vh;
-    width: 50vw;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 0 auto;
-    display: grid;
-    position: relative
-}
-
-@media (max-width: 1080px) {
-    .grid {
-        width: 75vw
-    }
-}
-
-.grid:hover>.grid__blob:not(:hover) {
-    opacity: 0;
-    transition: all .5s .5s
-}
-
-.grid__blob {
-    height: 30%;
-    width: 30%;
-    background-color: #21b0c9;
-    border: 4px solid #21b0c9;
-    border-radius: 30px;
-    justify-content: space-around;
-    align-items: center;
-    margin: 4px auto;
-    transition: all .5s;
-    display: flex;
-    position: absolute
-}
-
-.grid__blob__title {
-    z-index: 2;
-    text-align: center;
-    margin: auto
-}
-
-@media (max-width: 640px) {
-    .grid__blob__title {
-        font-size: 12px
-    }
-}
-
-.grid__blob__button {
-    visibility: hidden;
-    text-align: center;
-    z-index: 2;
-    font-size: 0
-}
-
-.grid__blob:before {
-    width: 100%;
-    height: 100%;
-    content: "";
-    -webkit-backdrop-filter: blur(2px)brightness(40%);
-    -webkit-backdrop-filter: blur(2px)brightness(40%);
-    backdrop-filter: blur(2px)brightness(40%);
-    background-color: #21b0c9;
-    border-radius: 16px;
-    transition: background-color .2s linear;
-    position: absolute;
-    top: 0;
-    left: 0
-}
-
-.grid__blob:nth-child(-n+3) {
-    top: 0
-}
-
-.grid__blob:nth-child(3n+3) {
-    left: 70%
-}
-
-.grid__blob:nth-child(3n+2) {
-    left: 35%
-}
-
-.grid__blob:nth-child(n+4):nth-child(-n+6) {
-    top: 35%
-}
-
-.grid__blob:nth-child(n+7):nth-child(-n+9) {
-    top: 70%
-}
-
-.grid__blob:hover {
-    height: 50vh;
-    width: 50vw;
-    opacity: 1;
-    z-index: 2;
-    background-color: #030918;
-    margin: 0 auto;
-    transition: all 1s .2s;
-    top: 0;
-    left: 0
-}
-
-@media (max-width: 1080px) {
-    .grid__blob:hover {
-        width: 75vw
-    }
-}
-
-.grid__blob:hover .grid__blob__title {
-    display: none
-}
-
-.grid__blob:hover .grid__blob__button {
-    visibility: visible;
-    font-size: 30px;
-    font-weight: 700;
-    transition: all 1s .2s
-}
-
-.grid__blob:hover:before {
-    background-color: #0000;
-    border-radius: 24px;
-    transition: background-color 1s
-}
-
-.grid__blob:hover:nth-child(n+4):nth-child(-n+9) {
-    top: 0
-}
-
-.grid__blob--yourname {
-    background-image: url(yourname.be4767e8.png)
-}
-
-.grid__blob--yourname .grid__blob__button:hover {
-    background: linear-gradient(90deg, #14bcf0, #b90079, #14bcf0) 0 0/200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: 5s linear infinite background-pan
-}
-
-.grid__blob--yourname:hover {
-    background-size: cover;
-    border-color: #550037
-}
-
-.grid__blob--porto {
-    background-image: url(porto.b059e860.png)
-}
-
-.grid__blob--porto .grid__blob__button:hover {
-    background: linear-gradient(90deg, #e9da9a, #98edf8, #e9da9a) 0 0/200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: 5s linear infinite background-pan
-}
-
-.grid__blob--porto:hover {
-    background-size: cover;
-    border-color: #554100
-}
-
-.grid__blob--niver {
-    background-image: url(niver.218be469.png)
-}
-
-.grid__blob--niver .grid__blob__button:hover {
-    background: linear-gradient(90deg, #008516, #93a300, #008516) 0 0/200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: 5s linear infinite background-pan
-}
-
-.grid__blob--niver:hover {
-    background-size: cover;
-    border-color: #003a00
-}
-
-.grid__blob--patchoca {
-    background-image: url(patchoca.6ffefab3.png);
-    background-position: 50%
-}
-
-.grid__blob--patchoca:before {
-    -webkit-backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none
-}
-
-.grid__blob--patchoca p {
-    visibility: hidden;
-    text-align: center;
-    font-size: 0;
-    font-weight: 700
-}
-
-.grid__blob--patchoca:hover {
-    background-size: cover;
-    border-bottom-color: #cc00a0;
-    border-right-color: #cc00a0
-}
-
-.grid__blob--patchoca:hover p {
-    visibility: visible;
-    font-size: 24px;
-    transition: all 1s .2s;
-    position: absolute;
-    bottom: 25px
-}
-
-@media (max-width: 640px) {
-    .grid__blob--patchoca:hover p {
-        font-size: 18px
-    }
-}
-
-.grid__blob--refruta {
-    background-image: url(refruta.a872b0a9.png)
-}
-
-.grid__blob--refruta .grid__blob__button:hover {
-    background: linear-gradient(90deg, #dd6e00, #009bb6, #dd6e00) 0 0/200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: 5s linear infinite background-pan
-}
-
-.grid__blob--refruta:hover {
-    background-size: cover;
-    border-color: #e46e00
-}
 
 /* Contact */
 #contato .metodo {
@@ -377,9 +142,5 @@ html {
 
     #contato .metodo span {
         display: block
-    }
-
-    #sobre .desc {
-        font-size: 1.3rem
     }
 }
