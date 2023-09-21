@@ -1,4 +1,77 @@
 .title {
     background-clip: text;
+    margin-top: 32px;
+}
 
+.link {
+    position: relative;
+}
+
+.link:hover img {
+    filter: opacity(100%);
+    transition: 0.5s all linear;
+}
+
+.link:hover .visit {
+    opacity: 0;
+    transition: 0.5s all linear;
+}
+
+.image {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 64px;
+    object-fit: cover;
+    transition: 0.5s all linear;
+    filter: opacity(50%);
+    object-position: top;
+}
+
+.image-static {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 64px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.visit {
+    font-size: 24px;
+    position: absolute;
+    top: calc(50% - 12px);
+    width: 100%;
+    text-align: center;
+    transition: 0.5s all linear;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.info__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 780px) {
+    .info {
+        flex-direction: column;
+        align-self: center;
+    }
+
+    .info__text {
+        margin-top: 24px;
+    }
+
+    .info__text p {
+        margin-bottom: 12px;
+    }
+
+    .image {
+        width: 100%;
+        max-height: 300px;
+        margin-top: 24px;
+    }
 }
