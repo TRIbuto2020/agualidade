@@ -1,29 +1,45 @@
 {% extends "base_generic.html" %}
 
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+{% endblock %}
+{% block title %}
+<title>Projeto: {{project.title}}</title>
+{% endblock %}
+
 {% block content %}
-    <h1>Title: {{ project.title }}</h1>
+<div class="centro">
+    <h1 class="title magic" style="background: linear-gradient(90deg, {{project.color}}, #21b0c9, #2022af, {{project.color}}) 0 0/200%; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: 5s linear infinite background-pan;">
+    {{ project.title }}
+    </h1>
+    
 
-    <p><strong>Author:</strong> <a href="">{{ project.author }}</a></p>
-    <!-- author detail link not yet defined -->
-    <p><strong>Summary:</strong> {{ project.summary }}</p>
-    <p><strong>ISBN:</strong> {{ project.isbn }}</p>
-    <p><strong>Language:</strong> {{ project.language }}</p>
-    <p><strong>Genre:</strong> {{ project.genre.all|join:", " }}</p>
-
-    <div style="margin-left:20px;margin-top:20px">
-        <h4>Copies</h4>
-
-        {% for copy in project.projectinstance_set.all %}
-        <hr />
-        <p
-            class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
-            {{ copy.get_status_display }}
-        </p>
-        {% if copy.status != 'a' %}
-            <p><strong>Due to be returned:</strong> {{ copy.due_back }}</p>
+    <div class='info'>
+        <div class="info__text">
+            <p><strong>Feito com:</strong> <a href="">{{ project.tech }}</a></p>
+            <p><strong>Sobre:</strong> {{ project.summary }}</p>
+        </div>  
+        {% if project.type == 0 %}
+        <a class='link' href="{{project.link}}"><img class='image' src="/static/img/uploads/{{project.thumb}}"
+            style="border: 3px solid {{project.color}};"
+            alt={{project.title}} />
+            <p class='visit'>
+                Visite!
+            </p>
+        </a>
+        {% else %}
+            <img class='image-static' src="/static/img/uploads/{{project.thumb}}"
+            style="border: 3px solid {{project.color}};"
+            alt={{project.title}} />
         {% endif %}
-        <p><strong>Imprint:</strong> {{ copy.imprint }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
-        {% endfor %}
     </div>
+
+</div>
 {% endblock %}
